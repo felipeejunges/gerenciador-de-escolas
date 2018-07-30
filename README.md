@@ -23,3 +23,11 @@ Você deve copiar o template de projeto presente neste repositório e atender ao
   - Design das telas.
 
 * Pontos extras: Testes unitários, validação dos inputs dos forms e uso de bibliotecas javascript. 
+
+## Envio 
+
+Você deve enviar o link do seu repositório (Gitlab, Github, Bitbucket, etc) para o email: tecnologia@brgeducacional.com.br.
+
+Data limite: 05/08 23:59.
+
+Boa sorte! ;)
