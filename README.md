@@ -21,3 +21,5 @@ Você deve copiar o template de projeto presente neste repositório e atender ao
   - Atendimento dos requisitos;
   - Organização de código;
   - Design das telas.
+
+* Pontos extras: Testes unitários, validação dos inputs dos forms e uso de bibliotecas javascript. 
