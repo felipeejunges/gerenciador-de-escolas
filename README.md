@@ -15,6 +15,10 @@ Você deve copiar o template de projeto presente neste repositório e atender ao
   - Criar e utilizar um banco de dados local Sqlite3;
   - Utilizar EntityFrameworkCore 2.0 para acesso aos dados;
   - Criar as tabelas de Escola, Turma e Alunos.
+  - A tabela de Escola deve ter campos como: Nome, Endereço Completo, Telefone, Logomarca e outros de sua preferência;
+  - A tabela de Turmas deve ter campos como: Nome, Ano e outros de sua preferência;
+  - A tabela de Alunos deve ter campos como: Nome, Nº de Matrícula, Endereço Completo, Telefone e outros de sua preferência;
+  - Cada aluno pode estar matriculado em no máximo uma turma;
   - Implementar telas de cadastro, consulta, edição e uma função para deleção dos registros de cada uma.
 
 ##### O que será avaliado no seu projeto:
@@ -27,7 +31,5 @@ Você deve copiar o template de projeto presente neste repositório e atender ao
 ## Envio 
 
 Você deve enviar o link do seu repositório (Gitlab, Github, Bitbucket, etc) para o email: tecnologia@brgeducacional.com.br.
-
-Data limite: 05/08 23:59.
 
 Boa sorte! ;)
