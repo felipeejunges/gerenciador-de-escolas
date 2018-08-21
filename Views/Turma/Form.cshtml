@@ -1,0 +1,71 @@
+@model gerenciador_de_escolas.ViewModels.TurmaViewModel
+@{
+    ViewData["Title"] = "Turma";
+}
+<div class="row">
+  
+</div>
+<div class="row">
+        <form>
+            <div class="container">
+                <div class="row">
+                    <div class="input-field col s2">
+                        <input asp-for="ano" class="validate">
+                        <label for="ano">Ano</label>
+                    </div>
+                    <div class="input-field col s10">
+                        <input asp-for="nome" class="validate">
+                        <label for="nome">Nome</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <select>
+                            <option value="" disabled selected>Selecione a escola</option>
+                            <option value="1">E1</option>
+                            <option value="2">E2</option>
+                            <option value="3">E3</option>
+                        </select>
+                        <label>Escolas</label>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="row">
+        <div class="container">
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Ano</th>
+                        <th>Nome da Turma</th>
+                        <th>Escola</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>A</td>
+                        <td>E1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>B</td>
+                        <td>E1</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>C</td>
+                        <td>E1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('select').formSelect();
+        });
+    </script>
+}
