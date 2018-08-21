@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gerenciador_de_escolas</title>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper blue">
+            <a href="#!" class="brand-logo">Gerenciador de Escolas</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Alunos</a></li>
+                <li><a href="#">Escolas</a></li>
+                <li><a href="#">Turmas</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="#">Alunos</a></li>
+        <li><a href="#">Escolas</a></li>
+        <li><a href="#">Turmas</a></li>
+    </ul>
+    <div class="row">
+        <div class="container">
+            <div class="input-field col s11">
+                <input id="procurar" type="text" class="validate">
+                <label for="procurar">Logo Marca</label>
+            </div>
+            <div class="col-lg-1">
+                <br>
+                <a class="btn-floating waves-effect waves-light blue"><i class="material-icons">search</i></a>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="container">
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>E1</td>
+                        <td>(41) 99999-9999</td>
+                    </tr>
+                    <tr>
+                        <td>E2</td>
+                        <td>(41) 99999-9999</td>
+                    </tr>
+                    <tr>
+                        <td>E3</td>
+                        <td>(41) 99999-9999</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../../js/jquery.3.3.1.min.js"></script>
+    <script type="text/javascript" src="../../js/materialize.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+    </script>
+</body>
+
+</html>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+@model gerenciador_de_escolas.ViewModels.AlunoViewModel
+@{
+    ViewData["Title"] = "Category";
+}
+<div class="row">
+  
+</div>
+<div class="row">
+        <form id="form" asp-action="New" asp-controller="Aluno">
+            <div class="container">
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input asp-for="nome" class="validate">
+                        <label for="nome">Nome</label>
+                    </div>
+                    <div class="input-field col s12 m3">
+                        <input asp-for="matricula" class="validate">
+                        <label for="matricula">Matricula</label>
+                    </div>
+                    <div class="input-field col s12 m3">
+                        <input asp-for="telefone" class="validate">
+                        <label for="telefone">Telefone</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input asp-for="endereco" class="validate">
+                        <label for="endereco">Endereço Completo</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <select>
+                            <option value="" disabled selected>Selecione a turma</option>
+                            <option value="1">E1</option>
+                            <option value="2">E2</option>
+                            <option value="3">E3</option>
+                        </select>
+                        <label>Turmas</label>
+                    </div>
+                </div>
+                <div class="row right-align">
+                        <button type="button" class="waves-effect waves-light btn red">Cancelar</button>
+                    <button type="reset" class="waves-effect waves-light btn orange">Limpar</button>
+                    <button type="submit" class="waves-effect waves-light btn green">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
