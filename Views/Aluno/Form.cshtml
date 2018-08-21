@@ -6,7 +6,7 @@
   
 </div>
 <div class="row">
-        <form id="form" asp-action="New" asp-controller="Aluno">
+        <form id="form" asp-action="Form" asp-controller="Aluno">
             <div class="container">
                 <div class="row">
                     <div class="input-field col s12 m6">
@@ -43,3 +43,10 @@
             </div>
         </form>
     </div>
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('select').formSelect();
+        });
+    </script>
+}

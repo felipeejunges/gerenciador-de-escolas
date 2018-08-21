@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace gerenciador_de_escolas.Controllers
 {
+    [Route("Aluno")]
     public class AlunoController : Controller
     {
         private readonly AlunoStorer _alunoStorer;
@@ -14,21 +15,21 @@ namespace gerenciador_de_escolas.Controllers
             _alunoStorer = alunoStorer;
         }
 
-        [HttpGet("Aluno")]
         public IActionResult Index()
         {
             return View();
         }
 
 
-        [HttpGet("Aluno/New")]
-        public IActionResult New()
+        [Route("Form")]
+        public IActionResult Form()
         {
             return View();
         }
 
-        [HttpPost("Aluno/New")]
-        public IActionResult New(AlunoViewModel viewsModels)
+        
+        [HttpPost("Form")]
+        public IActionResult Form(AlunoViewModel viewsModels)
         {
             //_categoryStorer.store(viewsModels.id, viewsModels.nome);
             return View();

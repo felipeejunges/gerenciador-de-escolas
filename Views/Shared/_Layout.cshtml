@@ -7,16 +7,15 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <title>@ViewData["Title"] - gerenciador_de_escolas</title>
     </head>
-
     <body>
       <nav>
-        <div class="nav-wrapper">
+        <div class="nav-wrapper blue darken-3">
           <a href="#!" class="brand-logo">Gerenciador de Escolas</a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="#">Alunos</a></li>
             <li><a href="#">Escolas</a></li>
-            <li><a href="#">Turmas</a></li>
+            <li><a href="/aluno/form/">Turmas</a></li>
           </ul>
         </div>
       </nav>
@@ -29,7 +28,7 @@
       <div class="row">
         @RenderBody()
       </div>
-      <script type="text/javascript" src="~/js/jquery.3.2.1.min.js"></script>
+      <script type="text/javascript" src="~/js/jquery.3.3.1.min.js"></script>
       <script type="text/javascript" src="~/js/materialize.min.js"></script>
       <script type="text/javascript">
         $(document).ready(function(){
