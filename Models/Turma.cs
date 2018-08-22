@@ -4,11 +4,16 @@ namespace gerenciador_de_escolas.Models
 {
     public class Turma : Entity
     {
-        public string nome {get; private set;}
-        public string ano {get; private set;}
-        public Escola escola {get; private set;}
+        public string nome { get; private set; }
+        public string ano { get; private set; }
+        public Escola escola { get; private set; }
 
-         public Turma(string nome, string ano, Escola escola)
+        public Turma()
+        {
+
+        }
+
+        public Turma(string nome, string ano, Escola escola)
         {
             validateValues(nome, ano, escola);
             setProperties(nome, ano, escola);

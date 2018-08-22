@@ -9,13 +9,19 @@ namespace gerenciador_de_escolas.Models
         public string telefone { get; private set; }
         public string logomarca { get; private set; }
 
+        public Escola()
+        {
+
+        }
+
         public Escola(string nome, string endereco, string telefone, string logomarca)
         {
             validateValues(nome, endereco, telefone, logomarca);
             setProperties(nome, endereco, telefone, logomarca);
         }
 
-        public void update(string nome, string endereco, string telefone, string logomarca) {
+        public void update(string nome, string endereco, string telefone, string logomarca)
+        {
             validateValues(nome, endereco, telefone, logomarca);
             setProperties(nome, endereco, telefone, logomarca);
         }

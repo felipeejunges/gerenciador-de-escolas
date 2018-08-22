@@ -10,6 +10,11 @@ namespace gerenciador_de_escolas.Models
         public string telefone { get; private set; }
         public Turma turma { get; private set; }
 
+        public Aluno()
+        {
+
+        }
+
         public Aluno(string nome, string matricula, string endereco, string telefone, Turma turma)
         {
             validateValues(nome, matricula, endereco, telefone, turma);
