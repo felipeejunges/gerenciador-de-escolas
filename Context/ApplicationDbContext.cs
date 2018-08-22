@@ -9,9 +9,10 @@ namespace gerenciador_de_escolas.Repository
         {
 
         }
-
-        public DbSet<Aluno> alunos { get; set; }
-        public DbSet<Turma> turmas { get; set; }
         public DbSet<Escola> escolas { get; set; }
+        public DbSet<Turma> turmas { get; set; }
+        public DbSet<Aluno> alunos { get; set; }
+      
+
     }
 }

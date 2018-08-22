@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using gerenciador_de_escolas.Config;
+using gerenciador_de_escolas.Filters;
 
 namespace gerenciador_de_escolas
 {
@@ -22,7 +23,9 @@ namespace gerenciador_de_escolas
         public void ConfigureServices(IServiceCollection services)
         {
             Bootstrap.Configure(services, Configuration.GetConnectionString("DefaultConnection"));
-            services.AddMvc();
+            services.AddMvc(config => {
+                config.Filters.Add(typeof(CustomExceptionFilter));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

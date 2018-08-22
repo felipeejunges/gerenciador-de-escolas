@@ -6,7 +6,9 @@
   
 </div>
 <div class="row">
-        <form>
+        <form id="form" asp-action="Form" asp-controller="Escola"
+            data-ajax="true" data-ajax-method="POST" data-ajax-failure="formOnFail" data-ajax-success="window.location = '/Escola'"              
+            asp-anti-forgery>
             <div class="container">
                 <div class="row">
                     <div class="input-field col s12 m6">
@@ -62,6 +64,8 @@
         </div>
     </div>
 @section Scripts {
+    <script src="/js/jquery.validate.unobtrusive.js"></script>
+    <script src="/js/jquery.unobtrusive-ajax.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('select').formSelect();
