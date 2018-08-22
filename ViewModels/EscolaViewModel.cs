@@ -7,11 +7,11 @@ namespace gerenciador_de_escolas.ViewModels
     {
         public int id { get; set; }
         [Required]
-        public string nome { get; private set; }
+        public string nome { get; set; }
         [Required]
-        public string endereco { get; private set; }
+        public string endereco { get; set; }
         [Required]
-        public string telefone { get; private set; }
-        public string logomarca { get; private set; }
+        public string telefone { get; set; }
+        public string logomarca { get; set; }
     }
 }

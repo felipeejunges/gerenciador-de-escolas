@@ -1,4 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using gerenciador_de_escolas.Models;
+using gerenciador_de_escolas.Repository;
 using gerenciador_de_escolas.Storer;
 using gerenciador_de_escolas.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -9,28 +13,58 @@ namespace gerenciador_de_escolas.Controllers
     public class EscolaController : Controller
     {
          private readonly EscolaStorer _escolaStorer;
+           private readonly IRepository<Escola> _escolaRepository;
 
-         public EscolaController(EscolaStorer escolaStorer) {
+         public EscolaController(EscolaStorer escolaStorer, IRepository<Escola> escolaRepository) {
             _escolaStorer = escolaStorer;
+            _escolaRepository = escolaRepository;
         }
 
         [Route("Index")]
-        [Route("Escola")]
+        [Route("")]
          public IActionResult Index()
         {
-            return View();
+            var escolas = _escolaRepository.All();
+            var viewModels = escolas.Select(e => new EscolaViewModel{ 
+                id = e.id, 
+                nome = e.nome,
+                telefone = e.telefone,
+                endereco = e.endereco,
+                logomarca = e.logomarca
+            });
+            return View(viewModels);
         }
 
-
-        [Route("Form")]
-        [HttpGet]
-        public IActionResult Form()
+        [HttpPost("Remove/{id}")]
+         public void Remove(int id)
         {
+            Escola escola = _escolaRepository.getById(id);
+            if(escola != null) {
+                _escolaRepository.remove(id);
+            }
+        }
+
+        [Route("Form/{id}")]
+        [HttpGet]
+        public IActionResult Form(int id)
+        {
+            if(id > 0)
+            {
+                var e = _escolaRepository.getById(id);
+                var escolaViewModel = new EscolaViewModel { 
+                    id = e.id, 
+                    nome = e.nome,
+                    telefone = e.telefone,
+                    endereco = e.endereco,
+                    logomarca = e.logomarca
+                 };
+                return View(escolaViewModel);
+            }
             return View();
         }
 
         
-       [HttpPost("Form")]
+       [HttpPost("Form/{id}")]
         public IActionResult Form(EscolaViewModel vm)
         {
             

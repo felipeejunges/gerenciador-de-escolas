@@ -10,7 +10,7 @@ namespace gerenciador_de_escolas.Config
         }
 
         public static void when(bool hasError, string error) {
-            if(!hasError)
+            if(hasError)
                 throw new DomainException(error);
         }
     }

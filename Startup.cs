@@ -32,7 +32,7 @@ namespace gerenciador_de_escolas
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {            
 
-            app.Use(async (context, next) =>
+             app.Use(async (context, next) =>
             {
                 //Request
                 await next.Invoke();
@@ -40,7 +40,9 @@ namespace gerenciador_de_escolas
                 var unitOfWork = (IUnitOfWork)context.RequestServices.GetService(typeof(IUnitOfWork));
                 await unitOfWork.Commit();
             });
+
             app.UseStaticFiles();
+
 
             app.UseMvc(routes =>
             {

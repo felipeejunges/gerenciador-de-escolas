@@ -10,11 +10,11 @@ namespace gerenciador_de_escolas.Config
     {
         public static void Configure(IServiceCollection services, String conection) {
             services.AddDbContext<ApplicationDbContext>(options => options.UseMySql(conection));
-            services.AddSingleton(typeof(IRepository<>), typeof(Repository<>));
-            services.AddSingleton(typeof(AlunoStorer));
-            services.AddSingleton(typeof(EscolaStorer));
-            services.AddSingleton(typeof(TurmaStorer));
-            services.AddSingleton(typeof(IUnitOfWork), typeof(UnitOfWork));
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(AlunoStorer));
+            services.AddScoped(typeof(EscolaStorer));
+            services.AddScoped(typeof(TurmaStorer));
+            services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
         }
 
     }
