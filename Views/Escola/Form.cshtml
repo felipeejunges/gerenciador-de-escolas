@@ -7,26 +7,36 @@
 </div>
 <div class="row">
         <form id="form" asp-action="Form" asp-controller="Escola"
-            data-ajax="true" data-ajax-method="POST" data-ajax-failure="formOnFail" data-ajax-success="window.location = '/Escola'"              
+            data-ajax="true" data-ajax-method="POST" data-ajax-failure="formOnFail" 
+            data-ajax-success="window.location = '/Escola/Form'"              
             asp-anti-forgery>
             <div class="container">
                 <div class="row">
+                    <input type="hidden" asp-for="id">
                     <div class="input-field col s12 m6">
-                        <input asp-for="nome" class="validate">
+                        <input asp-for="nome" class="validate" required>
                         <label for="nome">Nome</label>
+                        <span asp-validation-for="nome" class="red-text"></span>
                     </div>
                     <div class="input-field col s12 m3">
-                        <input asp-for="telefone" class="validate">
+                        <input asp-for="telefone" class="validate" required>
                         <label for="telefone">Telefone</label>
+                        <span asp-validation-for="telefone" class="red-text"></span>
                     </div>
                     <div class="input-field col s12 m3">
                         <input asp-for="logomarca" class="validate">
                         <label for="logomarca">Logo Marca</label>
+                        <span asp-validation-for="logomarca" class="red-text"></span>
                     </div>
                     <div class="input-field col s12">
-                        <input asp-for="endereco" class="validate">
+                        <input asp-for="endereco" class="validate" required>
                         <label for="endereco">Endereço</label>
+                        <span asp-validation-for="endereco" class="red-text"></span>
                     </div>
+                </div>
+                <div class="row right-align">
+                    <button type="reset" class="waves-effect waves-light btn red">Limpar</button>
+                    <button class="waves-effect waves-light btn green">Enviar</button>
                 </div>
             </div>
     
@@ -64,8 +74,10 @@
         </div>
     </div>
 @section Scripts {
+    <script src="/js/jquery.validate.min.js"></script>
     <script src="/js/jquery.validate.unobtrusive.js"></script>
     <script src="/js/jquery.unobtrusive-ajax.min.js"></script>
+     <script src="/js/form.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('select').formSelect();

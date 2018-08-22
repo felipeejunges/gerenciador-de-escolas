@@ -11,7 +11,6 @@ namespace gerenciador_de_escolas.Storer
         {
             _escolaRepository = escolaRepository;
         }
-
         public void store(int id, string nome, string endereco, string telefone, string logomarca) {
             var escola = _escolaRepository.getById(id);
             if(escola == null) {

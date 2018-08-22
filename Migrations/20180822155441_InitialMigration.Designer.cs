@@ -9,8 +9,8 @@ using gerenciador_de_escolas.Repository;
 namespace gerenciadordeescolas.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180822035844_alunos")]
-    partial class alunos
+    [Migration("20180822155441_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

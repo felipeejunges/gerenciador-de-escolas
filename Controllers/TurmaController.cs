@@ -28,9 +28,9 @@ namespace gerenciador_de_escolas.Controllers
 
         
         [HttpPost("Form")]
-        public IActionResult Form(TurmaViewModel viewsModels)
+        public IActionResult Form(TurmaViewModel vm)
         {
-            //_categoryStorer.store(viewsModels.id, viewsModels.nome);
+            _turmaStorer.store(vm.id, vm.nome, vm.ano, vm.escola);
             return View();
         }
         

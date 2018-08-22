@@ -31,6 +31,15 @@ namespace gerenciador_de_escolas
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {            
+
+            app.Use(async (context, next) =>
+            {
+                //Request
+                await next.Invoke();
+                //Response
+                var unitOfWork = (IUnitOfWork)context.RequestServices.GetService(typeof(IUnitOfWork));
+                await unitOfWork.Commit();
+            });
             app.UseStaticFiles();
 
             app.UseMvc(routes =>

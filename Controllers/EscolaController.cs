@@ -14,6 +14,8 @@ namespace gerenciador_de_escolas.Controllers
             _escolaStorer = escolaStorer;
         }
 
+        [Route("Index")]
+        [Route("Escola")]
          public IActionResult Index()
         {
             return View();
@@ -21,16 +23,18 @@ namespace gerenciador_de_escolas.Controllers
 
 
         [Route("Form")]
+        [HttpGet]
         public IActionResult Form()
         {
             return View();
         }
 
         
-        [HttpPost("Form")]
-        public IActionResult Form(EscolaViewModel viewsModels)
+       [HttpPost("Form")]
+        public IActionResult Form(EscolaViewModel vm)
         {
-            //_categoryStorer.store(viewsModels.id, viewsModels.nome);
+            
+            _escolaStorer.store(vm.id, vm.nome, vm.endereco, vm.telefone, vm.logomarca);
             return View();
         }
         

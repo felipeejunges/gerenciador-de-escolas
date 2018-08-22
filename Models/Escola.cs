@@ -38,7 +38,7 @@ namespace gerenciador_de_escolas.Models
             DomainException.when(string.IsNullOrEmpty(nome), "Nome é obrigatório");
             DomainException.when(string.IsNullOrEmpty(endereco), "Endereco é obrigatório");
             DomainException.when(string.IsNullOrEmpty(telefone), "Telefone é obrigatório");
-            DomainException.when(string.IsNullOrEmpty(logomarca), "Logomarca é obrigatório");
+            //DomainException.when(string.IsNullOrEmpty(logomarca), "Logomarca é obrigatório");
         }
     }
 }

@@ -29,9 +29,9 @@ namespace gerenciador_de_escolas.Controllers
 
         
         [HttpPost("Form")]
-        public IActionResult Form(AlunoViewModel viewsModels)
+        public IActionResult Form(AlunoViewModel vm)
         {
-            //_categoryStorer.store(viewsModels.id, viewsModels.nome);
+           _alunoStorer.store(vm.id, vm.nome, vm.matricula, vm.telefone, vm.endereco, vm.turma);
             return View();
         }
 
