@@ -8,16 +8,9 @@ namespace gerenciador_de_escolas.Models
         public string matricula { get; private set; }
         public string endereco { get; private set; }
         public string telefone { get; private set; }
-          public Aluno(string nome, string matricula, string endereco, string telefone)
-        {
-             this.nome = nome;
-            this.matricula = matricula;
-            this.endereco = endereco;
-            this.telefone = telefone;
-        }
-      //  public Turma turma { get; private set; }
+        public Turma turma { get; private set; }
 
-/*        public Aluno(string nome, string matricula, string endereco, string telefone, Turma turma)
+        public Aluno(string nome, string matricula, string endereco, string telefone, Turma turma)
         {
             validateValues(nome, matricula, endereco, telefone, turma);
             setProperties(nome, matricula, endereco, telefone, turma);
@@ -45,7 +38,7 @@ namespace gerenciador_de_escolas.Models
             DomainException.when(string.IsNullOrEmpty(telefone), "Telefone é obrigatório");
             DomainException.when(turma == null, "Turma é obrigatório");
         }
-         */
+
 
     }
 }
