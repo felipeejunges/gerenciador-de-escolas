@@ -24,7 +24,7 @@
                         <span asp-validation-for="matricula" class="red-text"></span>
                     </div>
                     <div class="input-field col s12 m3">
-                        <input asp-for="telefone" class="validate">
+                        <input asp-for="telefone" class="validate telefone">
                         <label for="telefone">Telefone</label>
                         <span asp-validation-for="telefone" class="red-text"></span>
                     </div>
@@ -49,6 +49,11 @@
         </form>
     </div>
     @section Scripts {
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/jquery.validate.unobtrusive.js"></script>
+    <script src="/js/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="/js/jquery.mask.js"></script>
+    <script src="/js/telefone.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('select').formSelect();

@@ -19,7 +19,7 @@
                         <span asp-validation-for="nome" class="red-text"></span>
                     </div>
                     <div class="input-field col s12 m3">
-                        <input asp-for="telefone" class="validate">
+                        <input asp-for="telefone" class="validate telefone">
                         <label for="telefone">Telefone</label>
                         <span asp-validation-for="telefone" class="red-text"></span>
                     </div>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="input-field col s12">
                         <input asp-for="endereco" class="validate">
-                        <label for="endereco">Endereço</label>
+                        <label for="endereco">Endereço Completo</label>
                         <span asp-validation-for="endereco" class="red-text"></span>
                     </div>
                 </div>
@@ -48,7 +48,9 @@
     <script src="/js/jquery.validate.min.js"></script>
     <script src="/js/jquery.validate.unobtrusive.js"></script>
     <script src="/js/jquery.unobtrusive-ajax.min.js"></script>
-     <script src="/js/form.js"></script>
+    <script src="/js/jquery.mask.js"></script>
+    <script src="/js/telefone.js"></script>
+    <script src="/js/form.js"></script> 
     <script type="text/javascript">
         $(document).ready(function(){
             $('select').formSelect();
