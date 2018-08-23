@@ -1,4 +1,5 @@
 @model gerenciador_de_escolas.ViewModels.TurmaViewModel
+@using gerenciador_de_escolas.ViewModels
 @{
     ViewData["Title"] = "Turma";
 }
@@ -6,25 +7,29 @@
   
 </div>
 <div class="row">
-        <form>
+        <form id="form" asp-action="Form" asp-controller="Turma"
+            data-ajax="true" data-ajax-method="POST" data-ajax-failure="formOnFail" 
+            data-ajax-success="window.location = '/Turma'"              
+            asp-anti-forgery>
             <div class="container">
                 <div class="row">
+                     <input type="hidden" asp-for="id">
                     <div class="input-field col s2">
                         <input asp-for="ano" class="validate">
                         <label for="ano">Ano</label>
+                        <span asp-validation-for="ano" class="red-text"></span>
                     </div>
                     <div class="input-field col s10">
                         <input asp-for="nome" class="validate">
                         <label for="nome">Nome</label>
+                        <span asp-validation-for="nome" class="red-text"></span>
                     </div>
                     <div class="input-field col s12">
-                        <select>
-                            <option value="" disabled selected>Selecione a escola</option>
-                            <option value="1">E1</option>
-                            <option value="2">E2</option>
-                            <option value="3">E3</option>
+                        <select asp-for="escolaId" 
+                        asp-items='@(new SelectList(@Model.escolas,"id","nome"))'>
                         </select>
                         <label>Escolas</label>
+                        <span asp-validation-for="escolaId" class="red-text"></span>
                     </div>
                 </div>
                 <div class="row right-align">
@@ -35,38 +40,11 @@
 
         </form>
     </div>
-    <div class="row">
-        <div class="container">
-            <table class="striped">
-                <thead>
-                    <tr>
-                        <th>Ano</th>
-                        <th>Nome da Turma</th>
-                        <th>Escola</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>A</td>
-                        <td>E1</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>B</td>
-                        <td>E1</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>C</td>
-                        <td>E1</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
 @section Scripts {
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/jquery.validate.unobtrusive.js"></script>
+    <script src="/js/jquery.unobtrusive-ajax.min.js"></script>
+     <script src="/js/form.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('select').formSelect();

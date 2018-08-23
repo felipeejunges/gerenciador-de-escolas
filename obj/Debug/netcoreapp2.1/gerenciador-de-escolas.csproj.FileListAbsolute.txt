@@ -56,3 +56,6 @@ C:\repositorios\github\gerenciador-de-escolas\obj\Debug\netcoreapp2.1\gerenciado
 C:\repositorios\github\gerenciador-de-escolas\obj\Debug\netcoreapp2.1\gerenciador-de-escolas.csproj.CopyComplete
 C:\repositorios\gerenciador-de-escolas\obj\Debug\netcoreapp2.1\Razor\Views\Aluno\Index.g.cshtml.cs
 C:\repositorios\gerenciador-de-escolas\obj\Debug\netcoreapp2.1\Razor\Views\Escola\Index.g.cshtml.cs
+C:\repositorios\github\gerenciador-de-escolas\obj\Debug\netcoreapp2.1\Razor\Views\Aluno\Index.g.cshtml.cs
+C:\repositorios\github\gerenciador-de-escolas\obj\Debug\netcoreapp2.1\Razor\Views\Escola\Index.g.cshtml.cs
+C:\repositorios\github\gerenciador-de-escolas\obj\Debug\netcoreapp2.1\Razor\Views\Turma\Index.g.cshtml.cs

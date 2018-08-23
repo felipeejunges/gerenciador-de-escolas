@@ -12,21 +12,23 @@ namespace gerenciador_de_escolas.Controllers
     [Route("Escola")]
     public class EscolaController : Controller
     {
-         private readonly EscolaStorer _escolaStorer;
-           private readonly IRepository<Escola> _escolaRepository;
+        private readonly EscolaStorer _escolaStorer;
+        private readonly IRepository<Escola> _escolaRepository;
 
-         public EscolaController(EscolaStorer escolaStorer, IRepository<Escola> escolaRepository) {
+        public EscolaController(EscolaStorer escolaStorer, IRepository<Escola> escolaRepository)
+        {
             _escolaStorer = escolaStorer;
             _escolaRepository = escolaRepository;
         }
 
         [Route("Index")]
         [Route("")]
-         public IActionResult Index()
+        public IActionResult Index()
         {
             var escolas = _escolaRepository.All();
-            var viewModels = escolas.Select(e => new EscolaViewModel{ 
-                id = e.id, 
+            var viewModels = escolas.Select(e => new EscolaViewModel
+            {
+                id = e.id,
                 nome = e.nome,
                 telefone = e.telefone,
                 endereco = e.endereco,
@@ -36,41 +38,45 @@ namespace gerenciador_de_escolas.Controllers
         }
 
         [HttpPost("Remove/{id}")]
-         public void Remove(int id)
+        public void Remove(int id)
         {
             Escola escola = _escolaRepository.getById(id);
-            if(escola != null) {
+            if (escola != null)
+            {
                 _escolaRepository.remove(id);
             }
         }
 
         [Route("Form/{id}")]
+        [Route("Form")]
         [HttpGet]
         public IActionResult Form(int id)
         {
-            if(id > 0)
+            if (id > 0)
             {
                 var e = _escolaRepository.getById(id);
-                var escolaViewModel = new EscolaViewModel { 
-                    id = e.id, 
+                var escolaViewModel = new EscolaViewModel
+                {
+                    id = e.id,
                     nome = e.nome,
                     telefone = e.telefone,
                     endereco = e.endereco,
                     logomarca = e.logomarca
-                 };
+                };
                 return View(escolaViewModel);
             }
             return View();
         }
 
-        
-       [HttpPost("Form/{id}")]
+
+        [HttpPost("Form/{id}")]
+        [HttpPost("Form")]
         public IActionResult Form(EscolaViewModel vm)
         {
-            
+
             _escolaStorer.store(vm.id, vm.nome, vm.endereco, vm.telefone, vm.logomarca);
             return View();
         }
-        
+
     }
 }
