@@ -4,6 +4,7 @@ using System.Linq;
 using gerenciador_de_escolas.Models;
 using gerenciador_de_escolas.Repository;
 using gerenciador_de_escolas.Storer;
+using gerenciador_de_escolas.Utils;
 using gerenciador_de_escolas.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,10 +16,13 @@ namespace gerenciador_de_escolas.Controllers
         private readonly EscolaStorer _escolaStorer;
         private readonly IRepository<Escola> _escolaRepository;
 
+        private readonly Util _util;
+
         public EscolaController(EscolaStorer escolaStorer, IRepository<Escola> escolaRepository)
         {
             _escolaStorer = escolaStorer;
             _escolaRepository = escolaRepository;
+            _util = new Util();
         }
 
         [Route("Index")]
@@ -74,7 +78,7 @@ namespace gerenciador_de_escolas.Controllers
         public IActionResult Form(EscolaViewModel vm)
         {
 
-            _escolaStorer.store(vm.id, vm.nome, vm.endereco, vm.telefone, vm.logomarca);
+            _escolaStorer.store(vm.id, vm.nome, vm.endereco, _util.onlyNumbers(vm.telefone), vm.logomarca);
             return View();
         }
 
