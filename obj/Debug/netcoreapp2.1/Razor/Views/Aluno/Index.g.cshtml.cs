@@ -150,7 +150,7 @@ WriteAttributeValue("", 1407, viewModel.id, 1407, 13, false);
             WriteLiteral(" class=\"btn blue\">Editar</a>\r\n                                ");
             EndContext();
             BeginContext(1483, 320, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "35d779ec3bfd439587ad75bf28f04c86", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e5f1984ceef3439dbdb351b33b399fca", async() => {
                 BeginContext(1792, 7, true);
                 WriteLiteral("Deletar");
                 EndContext();

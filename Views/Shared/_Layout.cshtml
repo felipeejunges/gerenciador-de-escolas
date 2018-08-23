@@ -3,6 +3,7 @@
     <head>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link type="text/css" rel="stylesheet" href="~/css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="~/css/style.css"  media="screen,projection"/>
 
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <title>@ViewData["Title"] - gerenciador_de_escolas</title>
@@ -10,20 +11,86 @@
     <body>
       <nav>
         <div class="nav-wrapper blue darken-3">
-          <a href="#!" class="brand-logo">Gerenciador de Escolas</a>
+          <a href="#!" class="brand-logo">GdE</a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="#">Alunos</a></li>
-            <li><a href="#">Escolas</a></li>
-            <li><a href="/aluno/form/">Turmas</a></li>
+            <li><a href="/">Inicio</a></li>
+            <li>
+              <a class="dropdown-trigger blue darken-3 white-text" href="#!" data-target="ddlAluno">
+                Aluno<i class="material-icons right">arrow_drop_down</i>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-trigger blue darken-3 white-text" href="#!" data-target="ddlEscola">
+                Escola<i class="material-icons right">arrow_drop_down</i>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-trigger blue darken-3 white-text" href="#!" data-target="ddlTurma">
+                Turma<i class="material-icons right">arrow_drop_down</i>
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
-
-      <ul class="sidenav" id="mobile-demo">
-          <li><a href="#">Alunos</a></li>
-          <li><a href="#">Escolas</a></li>
-          <li><a href="#">Turmas</a></li>
+      <ul id="ddlAluno" class="dropdown-content blue darken-3">
+        <li><a href="/aluno/form/" class="white-text">Novo</a></li>
+        <li><a href="/aluno/" class="white-text">Listar</a></li>
+      </ul>
+      <ul id="ddlEscola" class="dropdown-content blue darken-3 white-text">
+        <li><a href="/escola/form/" class="white-text">Novo</a></li>
+        <li><a href="/escola/" class="white-text">Listar</a></li>
+      </ul>
+      <ul id="ddlTurma" class="dropdown-content blue darken-3 white-text">
+        <li><a href="/turma/form/" class="white-text">Novo</a></li>
+        <li><a href="/turma/" class="white-text">Listar</a></li>
+      </ul>
+      <ul class="sidenav blue darken-3 white-text" id="mobile-demo">
+          <li>
+            <ul class="collapsible" data-collapsible="expandable">
+              <li>
+                <a class="collapsible-header white-text">
+                  Aluno<i class="material-icons white-text">arrow_drop_down</i>
+                </a>
+                <div class="collapsible-body blue darken-3 pade">
+                  <ul>
+                    <li><a href="/aluno/form/" class="thin white-text">Novo</a></li>
+                    <li><a href="/aluno/" class="thin white-text">Cadastrar</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <ul class="collapsible" data-collapsible="expandable">
+              <li>
+                <a class="collapsible-header white-text">
+                  Escola<i class="material-icons white-text">arrow_drop_down</i>
+                </a>
+                <div class="collapsible-body blue darken-3 pade">
+                  <ul>
+                    <li><a href="/escola/form/" class="thin white-text">Novo</a></li>
+                    <li><a href="/escola/" class="thin white-text">Cadastrar</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <ul class="collapsible" data-collapsible="expandable">
+              <li>
+                <a class="collapsible-header white-text">
+                  Turma<i class="material-icons white-text">arrow_drop_down</i>
+                </a>
+                <div class="collapsible-body blue darken-3 pade">
+                  <ul>
+                    <li><a href="/turma/form/" class="thin white-text">Novo</a></li>
+                    <li><a href="/turma/" class="thin white-text">Cadastrar</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
       </ul>
       <div class="row">
         @RenderBody()
@@ -33,6 +100,8 @@
       <script type="text/javascript">
         $(document).ready(function(){
           $('.sidenav').sidenav();
+          $('.dropdown-trigger').dropdown();
+          $('.collapsible').collapsible();
         });
       </script>
       @RenderSection("Scripts", required: false)
