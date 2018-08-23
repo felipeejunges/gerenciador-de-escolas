@@ -1,4 +1,55 @@
-@model gerenciador_de_escolas.ViewModels.AlunoViewModel
+@model IEnumerable<gerenciador_de_escolas.ViewModels.AlunoViewModel>
 @{
     ViewData["Title"] = "Aluno";
 }
+<div class="row">
+        <div class="container center-align">
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>Ano</th>
+                        <th>Turma</th>
+                        <th>Escola</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                     @foreach(var viewModel in @Model)
+                    {
+                        <tr>
+                            <td>
+                                @viewModel.nome
+                            </td>
+                            <td>
+                                @viewModel.telefone
+                            </td>
+                            <td>
+                                @viewModel.turmaAno
+                            </td>
+                            <td>
+                                @viewModel.turmaNome
+                            </td>
+                            <td>
+                                @viewModel.escolaNome
+                            </td>
+                            <td>
+                                <a href="/Aluno/Form/@viewModel.id" class="btn blue">Editar</a>
+                                <a asp-action="Remove" asp-route-id="@viewModel.id" class="btn red"
+                                asp-controller="Aluno" data-ajax="true" data-ajax-method="POST"
+                                data-ajax-success="window.location = '/Turma'"              
+                                asp-anti-forgery>Deletar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @section Scripts {
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/jquery.validate.unobtrusive.js"></script>
+    <script src="/js/jquery.unobtrusive-ajax.min.js"></script>
+    }

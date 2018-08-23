@@ -23,7 +23,7 @@ namespace gerenciador_de_escolas.Storer
             DomainException.when(turma == null, "Escola é invalida");
 
             Aluno aluno = _alunoRepository.getById(id);
-            if (turma == null)
+            if (aluno == null)
             {
                 aluno = new Aluno(nome, matricula, endereco, telefone, turma);
                 _alunoRepository.save(aluno);

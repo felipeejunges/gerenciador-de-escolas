@@ -32,7 +32,12 @@ namespace gerenciador_de_Turmas.Controllers
             var turmas = _turmaRepository.All();
             if (turmas.Any())
             {
-                var viewsModels = turmas.Select(t => new TurmaViewModel { id = t.id, nome = t.nome, ano = t.ano, escolaNome = t.escola.nome});
+                var viewsModels = turmas.Select(t => new TurmaViewModel { 
+                    id = t.id, 
+                    nome = t.nome, 
+                    ano = t.ano, 
+                    escolaNome = t.escola.nome
+                    });
                 return View(viewsModels);
             }
 
@@ -69,7 +74,6 @@ namespace gerenciador_de_Turmas.Controllers
                 turmaViewModel.ano = t.ano;
                 turmaViewModel.nome = t.nome;
                 turmaViewModel.escolaId = t.escola.id;
-                return View(turmaViewModel);
             }
             return View(turmaViewModel);
         }
