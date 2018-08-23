@@ -41,7 +41,7 @@ namespace gerenciadordeescolas.Migrations
                         column: x => x.escolaid,
                         principalTable: "escolas",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -64,7 +64,7 @@ namespace gerenciadordeescolas.Migrations
                         column: x => x.turmaid,
                         principalTable: "turmas",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
