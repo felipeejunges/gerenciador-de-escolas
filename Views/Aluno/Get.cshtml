@@ -1,0 +1,54 @@
+@model gerenciador_de_escolas.ViewModels.AlunoViewModel
+@{
+    ViewData["Title"] = "Aluno";
+}
+<div class="row">
+    <div class="container center-align">
+        <span class="title-view blue-text text-darken-2">Visualização de Aluno</span>
+    </div>  
+</div>
+<div class="row">
+    <div class="container">
+        <span class="description-view">Sobre o Aluno</span>
+    </div>  
+</div>
+<div class="row">
+        <form id="form" asp-controller="Aluno">
+            <div class="container">
+                <div class="row">
+                    <input type="hidden" asp-for="id">
+                    <div class="input-field col s12 m6">
+                        <input asp-for="nome" class="validate" readonly>
+                        <label for="nome">Nome</label>
+                    </div>
+                    <div class="input-field col s12 m3">
+                        <input asp-for="matricula" class="validate" readonly>
+                        <label for="matricula">Matricula</label>
+                    </div>
+                    <div class="input-field col s12 m3">
+                        <input asp-for="telefone" class="validate telefone" readonly>
+                        <label for="telefone">Telefone</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input asp-for="endereco" class="validate" readonly>
+                        <label for="endereco">Endereço Completo</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <select asp-for="turmaId" readonly
+                        asp-items='@(new SelectList(@Model.turmas,"id","nome"))'>
+                        </select>
+                        <label>Turmas</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    @section Scripts {
+    <script src="/js/jquery.mask.js"></script>
+    <script src="/js/telefone.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('select').formSelect();
+        });
+    </script>
+}

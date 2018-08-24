@@ -15,6 +15,7 @@ namespace gerenciador_de_escolas.ViewModels
         public int escolaId {get; set;}
         public string escolaNome {get;set;}
          public IEnumerable<EscolaViewModel> escolas { get; set; }
+        public IEnumerable<AlunoViewModel> alunos { get; set; }
 
     }
 }

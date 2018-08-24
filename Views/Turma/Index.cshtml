@@ -3,6 +3,11 @@
     ViewData["Title"] = "Turma";
 }
 <div class="row">
+    <div class="container center-align">
+        <span class="title-view blue-text text-darken-2">Lista de Turmas</span>
+    </div>  
+</div>
+<div class="row">
         <div class="container center-align">
             <table class="striped">
                 <thead>
@@ -33,6 +38,7 @@
                                 asp-controller="Turma" data-ajax="true" data-ajax-method="POST"
                                 data-ajax-success="window.location = '/Turma'"              
                                 asp-anti-forgery>Deletar</a>
+                                <a href="/Turma/@viewModel.id" class="btn blue">Visualizar</a>
                             </td>
                         </tr>
                     }

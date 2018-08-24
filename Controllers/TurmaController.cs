@@ -15,14 +15,17 @@ namespace gerenciador_de_Turmas.Controllers
         private readonly TurmaStorer _turmaStorer;
         private readonly IRepository<Turma> _turmaRepository;
         private readonly IRepository<Escola> _escolaRepository;
+        private readonly IRepository<Aluno> _alunoRepository;
 
         public TurmaController(TurmaStorer turmaStorer,
         IRepository<Turma> turmaRepository,
-        IRepository<Escola> escolaRepository)
+        IRepository<Escola> escolaRepository,
+        IRepository<Aluno> alunoRepository)
         {
             _turmaStorer = turmaStorer;
             _turmaRepository = turmaRepository;
             _escolaRepository = escolaRepository;
+            _alunoRepository = alunoRepository;
         }
 
         [Route("Index")]
@@ -54,11 +57,41 @@ namespace gerenciador_de_Turmas.Controllers
             }
         }
 
+        [Route("get/{id}")]
+        [Route("{id}")]
+        [HttpGet]
+        public IActionResult Get(int id)
+        {
+            var vm = pegarTurma(id);
+            var alunos = _alunoRepository.getByFK(id);
+            if (alunos.Any())
+            {
+                vm.alunos = alunos.Select(a => new AlunoViewModel
+                {
+                    id = a.id,
+                    matricula = a.matricula,
+                    nome = a.nome,
+                    telefone = a.telefone,
+                    endereco = a.endereco,
+                    turmaNome = a.turma.nome,
+                    turmaAno = a.turma.ano,
+                    escolaNome = a.turma.escola.nome
+                });
+            } else {
+                vm.alunos = new List<AlunoViewModel>();
+            }
+            return View(vm);
+        }
+
         [Route("Form/{id}")]
         [Route("Form")]
         [HttpGet]
         public IActionResult Form(int id)
         {
+            return View(pegarTurma(id));
+        }
+
+        private TurmaViewModel pegarTurma(int id) {
             var turmaViewModel = new TurmaViewModel();
             var escolas = _escolaRepository.All();
             turmaViewModel.escolas = escolas.Any()
@@ -75,9 +108,8 @@ namespace gerenciador_de_Turmas.Controllers
                 turmaViewModel.nome = t.nome;
                 turmaViewModel.escolaId = t.escola.id;
             }
-            return View(turmaViewModel);
+            return turmaViewModel;
         }
-
 
         [HttpPost("Form/{id}")]
         [HttpPost("Form")]

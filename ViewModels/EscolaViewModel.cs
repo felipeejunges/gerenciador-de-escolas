@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using gerenciador_de_escolas.Config;
 
@@ -13,5 +14,7 @@ namespace gerenciador_de_escolas.ViewModels
         [Required]
         public string telefone { get; set; }
         public string logomarca { get; set; }
+
+         public IEnumerable<TurmaViewModel> turmas { get; set; } 
     }
 }

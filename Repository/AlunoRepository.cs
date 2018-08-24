@@ -27,5 +27,12 @@ namespace gerenciador_de_escolas.Repository
 
             return query.Any() ? query.ToList() : new List<Aluno>();
         }
+
+        public override IEnumerable<Aluno> getByFK(int turmaId)
+        {
+            var query = _context.Set<Aluno>().Include(a => a.turma).Include(e => e.turma.escola).Where(a => a.turma.id == turmaId);
+
+            return query.Any() ? query.ToList() : new List<Aluno>();
+        }
     }
 }

@@ -62,11 +62,27 @@ namespace gerenciador_de_turmas.Controllers
             }
         }
 
+        [Route("{id}")]
+        [Route("get/{id}")]
+        public IActionResult Get(int id)
+        {
+            var vm = pegarAluno(id);
+
+            return View(vm);
+        }
+
+
         [Route("Form/{id}")]
         [Route("Form")]
         [HttpGet]
         public IActionResult Form(int id)
         {
+            var vm = pegarAluno(id);
+
+            return View(vm);
+        }
+
+        private AlunoViewModel pegarAluno(int id) {
             var vm = new AlunoViewModel();
             var turmas = _turmaRepository.All();
             vm.turmas = turmas.Any()
@@ -87,10 +103,8 @@ namespace gerenciador_de_turmas.Controllers
                 vm.endereco = a.endereco;
                 vm.turmaId = a.turma.id;
             }
-
-            return View(vm);
+            return vm;
         }
-
 
         [HttpPost("Form/{id}")]
         [HttpPost("Form")]

@@ -91,3 +91,7 @@ C:\repositorios\paraentrega\gerenciador-de-escolas\obj\Debug\netcoreapp2.1\geren
 C:\repositorios\paraentrega\gerenciador-de-escolas\obj\Debug\netcoreapp2.1\gerenciador-de-escolas.pdb
 C:\repositorios\paraentrega\gerenciador-de-escolas\obj\Debug\netcoreapp2.1\gerenciador-de-escolas.csproj.CopyComplete
 C:\repositorios\paraentrega\gerenciador-de-escolas\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+c:\repositorios\github\gerenciador-de-escolas\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+c:\repositorios\github\gerenciador-de-escolas\obj\Debug\netcoreapp2.1\Razor\Views\Aluno\Get.g.cshtml.cs
+c:\repositorios\github\gerenciador-de-escolas\obj\Debug\netcoreapp2.1\Razor\Views\Escola\Get.g.cshtml.cs
+c:\repositorios\github\gerenciador-de-escolas\obj\Debug\netcoreapp2.1\Razor\Views\Turma\Get.g.cshtml.cs

@@ -15,13 +15,17 @@ namespace gerenciador_de_escolas.Controllers
     {
         private readonly EscolaStorer _escolaStorer;
         private readonly IRepository<Escola> _escolaRepository;
+        private readonly IRepository<Turma> _turmaRepository;
 
         private readonly Util _util;
 
-        public EscolaController(EscolaStorer escolaStorer, IRepository<Escola> escolaRepository)
+        public EscolaController(EscolaStorer escolaStorer, 
+        IRepository<Escola> escolaRepository,
+        IRepository<Turma> turmaRepository)
         {
             _escolaStorer = escolaStorer;
             _escolaRepository = escolaRepository;
+            _turmaRepository = turmaRepository;
             _util = new Util();
         }
 
@@ -51,11 +55,38 @@ namespace gerenciador_de_escolas.Controllers
             }
         }
 
+        [Route("get/{id}")]
+        [Route("{id}")]
+        [HttpGet]
+        public IActionResult Get(int id)
+        {
+            var vm = pegarEscola(id);
+            var turmas = _turmaRepository.getByFK(id);
+            if (turmas.Any())
+            {
+                vm.turmas = turmas.Select(t => new TurmaViewModel { 
+                    id = t.id, 
+                    nome = t.nome, 
+                    ano = t.ano, 
+                    escolaNome = t.escola.nome
+                    });
+            } else {
+                 vm.turmas = new List<TurmaViewModel>();
+            }
+            return View(vm);
+        }
+
         [Route("Form/{id}")]
         [Route("Form")]
         [HttpGet]
         public IActionResult Form(int id)
         {
+            var vm = pegarEscola(id);
+            if(vm == null) return View();
+            else return View(vm);
+        }
+
+        private EscolaViewModel pegarEscola(int id) {
             if (id > 0)
             {
                 var e = _escolaRepository.getById(id);
@@ -67,9 +98,9 @@ namespace gerenciador_de_escolas.Controllers
                     endereco = e.endereco,
                     logomarca = e.logomarca
                 };
-                return View(escolaViewModel);
+                return escolaViewModel;
             }
-            return View();
+            return null;
         }
 
 

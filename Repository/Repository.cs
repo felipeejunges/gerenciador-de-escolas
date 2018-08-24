@@ -23,6 +23,16 @@ namespace gerenciador_de_escolas.Repository
             return new List<TEntity>();
         }
 
+        public virtual IEnumerable<TEntity> getByFK(int fkId)
+        {
+             var query = _context.Set<TEntity>();
+
+            if(query.Any())
+                return query.ToList();
+
+            return new List<TEntity>();
+        }
+
         public virtual TEntity getById(int id) {
             return _context.Set<TEntity>().SingleOrDefault(e => e.id == id);
         }

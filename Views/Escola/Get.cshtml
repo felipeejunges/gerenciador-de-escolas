@@ -1,0 +1,97 @@
+@model gerenciador_de_escolas.ViewModels.EscolaViewModel
+@{
+    ViewData["Title"] = "Escola";
+}
+<div class="row">
+    <div class="container center-align">
+        <span class="title-view blue-text text-darken-2">Visualização de Escola</span>
+    </div>  
+</div>
+<div class="row">
+    <div class="container">
+        <span class="description-view">Sobre a Escola</span>
+    </div>  
+</div>
+<div class="row">
+        <form id="form" asp-controller="Escola">
+            <div class="container">
+                <div class="row">
+                    <input type="hidden" asp-for="id">
+                    <div class="input-field col s12 m6">
+                        <input asp-for="nome" class="validate" readonly>
+                        <label for="nome">Nome</label>
+                    </div>
+                    <div class="input-field col s12 m3">
+                        <input asp-for="telefone" class="validate telefone" readonly>
+                        <label for="telefone">Telefone</label>
+                    </div>
+                    <div class="input-field col s12 m3">
+                        <input asp-for="logomarca" class="validate" readonly>
+                        <label for="logomarca">Logo Marca</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input asp-for="endereco" class="validate" readonly>
+                        <label for="endereco">Endereço Completo</label>
+                    </div>
+                </div>
+            </div>
+    
+        </form>
+    </div>
+    <div class="row">
+        <div class="container">
+            <span class="description-view">Lista de Turmas da Escola</span>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="container center-align">
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Ano</th>
+                        <th>Nome</th>
+                        <th>Escola</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                     @foreach(var viewModel in @Model.turmas)
+                    {
+                        <tr>
+                            <td>
+                                @viewModel.ano
+                            </td>
+                            <td>
+                                @viewModel.nome
+                            </td>
+                            <td>
+                                @viewModel.escolaNome
+                            </td>
+                            <td>
+                                <a href="/Turma/Form/@viewModel.id" class="btn blue">Editar</a>
+                                <a asp-action="Remove" asp-route-id="@viewModel.id" class="btn red"
+                                asp-controller="Turma" data-ajax="true" data-ajax-method="POST"
+                                data-ajax-success="window.location = '/Turma'"              
+                                asp-anti-forgery>Deletar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+@section Scripts {
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/jquery.validate.unobtrusive.js"></script>
+    <script src="/js/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="/js/jquery.mask.js"></script>
+    <script src="/js/telefone.js"></script>
+    <script src="/js/form.js"></script> 
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('select').formSelect();
+        });
+    </script>
+}
