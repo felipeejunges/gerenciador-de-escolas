@@ -22,7 +22,7 @@ namespace gerenciador_de_escolas
         
         public void ConfigureServices(IServiceCollection services)
         {
-            Bootstrap.Configure(services, Configuration.GetConnectionString("DefaultConnection"));
+            Bootstrap.Configure(services, Configuration.GetConnectionString("SqliteConnection"));
             services.AddMvc(config => {
                 config.Filters.Add(typeof(CustomExceptionFilter));
             });

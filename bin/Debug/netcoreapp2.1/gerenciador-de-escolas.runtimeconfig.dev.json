@@ -1,9 +1,9 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\Junges\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Junges\\.nuget\\packages",
-      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      "/home/segfy/.dotnet/store/|arch|/|tfm|",
+      "/home/segfy/.nuget/packages",
+      "/usr/share/dotnet/sdk/NuGetFallbackFolder"
     ]
   }
 }

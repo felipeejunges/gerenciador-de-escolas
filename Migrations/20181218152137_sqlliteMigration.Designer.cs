@@ -9,15 +9,14 @@ using gerenciador_de_escolas.Repository;
 namespace gerenciadordeescolas.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180822155441_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20181218152137_sqlliteMigration")]
+    partial class sqlliteMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+                .HasAnnotation("ProductVersion", "2.2.0-rtm-35687");
 
             modelBuilder.Entity("gerenciador_de_escolas.Models.Aluno", b =>
                 {
