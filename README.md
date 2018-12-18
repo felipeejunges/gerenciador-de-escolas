@@ -11,7 +11,7 @@ Realizar uma migração
 ```dotnet ef migrations add nomeDaMigration```
 
 Atualizar Banco
-```dotnet ef database update``
+```dotnet ef database update```
 
 Rodar o projeto 
-```dotnet run`
+```dotnet run```
