@@ -5,7 +5,7 @@
 
 ## Dicas
 Build do projeto
-```dotnet build``
+```dotnet build```
 
 Realizar uma migração 
 ```dotnet ef migrations add nomeDaMigration```
